@@ -1,9 +1,4 @@
-"use client";
-
-import { useEffect } from "react";
-import { pageMarkup } from "./content";
-
-const translations: Record<string, string> = {
+export const tamilTranslations: Record<string, string> = {
   "Home Rooftop Solar":"வீட்டு மாடி சோலார்", "Commercial Solar":"வணிக சோலார்",
   "On-grid, Off-grid & Hybrid":"ஆன்-கிரிட், ஆஃப்-கிரிட் மற்றும் ஹைப்ரிட்",
   "Solar inspiration":"சோலார் வடிவமைப்பு உதாரணங்கள்", "See what solar can look like.":"சோலார் அமைப்பு எப்படி இருக்கும் என்று பாருங்கள்.",
@@ -23,66 +18,3 @@ const translations: Record<string, string> = {
   "Anything else you'd like us to know?":"வேறு ஏதேனும் தெரிவிக்க விரும்புகிறீர்களா?", "Enter your name":"உங்கள் பெயரை உள்ளிடுங்கள்", "Your contact number":"உங்கள் தொலைபேசி எண்", "e.g. Aruppukottai":"உதா. அருப்புக்கோட்டை",
   "From first enquiry to solar-ready.":"முதல் விசாரணையிலிருந்து சோலார் நிறுவல் வரை."
 };
-
-export default function Home() {
-  useEffect(() => {
-    const root = document.documentElement;
-    const setLanguage = (lang: string) => {
-      const language = lang === "ta" ? "ta" : "en";
-      root.lang = language;
-      document.querySelectorAll<HTMLElement>("[data-en][data-ta]").forEach((el) => {
-        el.textContent = language === "ta" ? el.dataset.ta ?? "" : el.dataset.en ?? "";
-      });
-      document.querySelectorAll<HTMLButtonElement>(".lang-btn").forEach((button) => {
-        button.classList.toggle("active", button.dataset.lang === language);
-      });
-      document.querySelectorAll<HTMLElement>("h1,h2,h3,p,summary,a,button,label,small,b").forEach((el) => {
-        if (el.children.length === 0 && !el.hasAttribute("data-en")) {
-          const original = el.dataset.originalText || el.textContent?.trim() || "";
-          if (!el.dataset.originalText) el.dataset.originalText = original;
-          const translated = translations[original];
-          if (language === "ta" && translated) el.textContent = translated;
-          else if (language === "en") el.textContent = el.dataset.originalText;
-        }
-      });
-      try { window.localStorage.setItem("vaanam-lang", language); } catch {}
-    };
-
-    const langButtons = Array.from(document.querySelectorAll<HTMLButtonElement>(".lang-btn"));
-    const languageHandlers = langButtons.map((button) => {
-      const handler = () => setLanguage(button.dataset.lang || "en");
-      button.addEventListener("click", handler);
-      return { button, handler };
-    });
-
-    const form = document.getElementById("quoteForm") as HTMLFormElement | null;
-    const formHandler = (event: Event) => {
-      event.preventDefault();
-      if (!form) return;
-      const data = new FormData(form);
-      const lines = [
-        "Hi VAANAM Solar Solutions, I'd like a solar consultation.", "",
-        `Name: ${data.get("name") || ""}`,
-        `Phone: ${data.get("phone") || ""}`,
-        `Property: ${data.get("property") || ""}`,
-        `Monthly bill: ${data.get("bill") || ""}`,
-        `Area: ${data.get("location") || "Not provided"}`,
-        `Message: ${data.get("message") || "Not provided"}`
-      ];
-      window.open(`https://wa.me/918428420505?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener,noreferrer");
-    };
-    form?.addEventListener("submit", formHandler);
-    const year = document.getElementById("year");
-    if (year) year.textContent = String(new Date().getFullYear());
-    let initial = "en";
-    try { initial = window.localStorage.getItem("vaanam-lang") || "en"; } catch {}
-    setLanguage(initial);
-
-    return () => {
-      languageHandlers.forEach(({ button, handler }) => button.removeEventListener("click", handler));
-      form?.removeEventListener("submit", formHandler);
-    };
-  }, []);
-
-  return <div dangerouslySetInnerHTML={{ __html: pageMarkup }} />;
-}
