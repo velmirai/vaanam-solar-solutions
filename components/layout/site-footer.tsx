@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 import { TranslatedText } from "../i18n/translated-text";
 import { CopyrightYear } from "./copyright-year";
 export function SiteFooter() {
@@ -10,27 +11,27 @@ export function SiteFooter() {
               <p>{"Helping homes and businesses explore practical solar energy solutions in Aruppukottai and nearby areas."}</p>
             </div>
             <div className="footer-links">
-              <a href="#services">
+              <SectionLink href="/services">
                 <span>
                   <TranslatedText en="Solutions" ta="சேவைகள்"/>
                 </span>
-              </a>
-              <a href="#benefits">
+              </SectionLink>
+              <SectionLink href="/benefits">
                 <span>
                   <TranslatedText en="Why Solar" ta="சோலார் ஏன்?"/>
                 </span>
-              </a>
-              <a href="#subsidy">
+              </SectionLink>
+              <SectionLink href="/subsidy">
                 <span>
                   <TranslatedText en="Subsidy" ta="மானியம்"/>
                 </span>
-              </a>
-              <a href="#projects">{"Gallery"}</a>
-              <a href="#contact">
+              </SectionLink>
+              <SectionLink href="/projects">{"Gallery"}</SectionLink>
+              <SectionLink href="/contact">
                 <span>
                   <TranslatedText en="Contact" ta="தொடர்பு"/>
                 </span>
-              </a>
+              </SectionLink>
             </div>
           </div>
           <div className="copyright">

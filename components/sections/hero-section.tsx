@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 import { TranslatedText } from "../i18n/translated-text";
 export function HeroSection() {
     return <>
@@ -15,12 +16,12 @@ export function HeroSection() {
             </h1>
             <p>{"Make the switch to clean, dependable solar energy with a solution designed around your roof, electricity usage and budget."}</p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#contact">
+              <SectionLink className="btn btn-primary" href="/contact">
                 <span>
                   <TranslatedText en="Get a Free Consultation" ta="இலவச ஆலோசனை பெறுங்கள்"/>
                 </span>
                 <span>{"↗"}</span>
-              </a>
+              </SectionLink>
               <a className="btn btn-outline" href="https://wa.me/918428420505?text=Hi%20VAANAM%20Solar%20Solutions%2C%20I%20would%20like%20to%20know%20about%20rooftop%20solar." target="_blank" rel="noopener">
                 <span>
                   <TranslatedText en="☏ WhatsApp Us" ta="☏ வாட்ஸ்அப் செய்யுங்கள்"/>
