@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 import { TranslatedText } from "../i18n/translated-text";
 export function ServicesSection() {
     return <>
@@ -25,12 +26,12 @@ export function ServicesSection() {
                 <p>
                   <TranslatedText en="Generate power at home, use more of the sunlight available to you and explore eligibility for applicable residential subsidy schemes." ta="வீட்டிலேயே சூரிய மின்சாரம் உற்பத்தி செய்து, மின்கட்டணத்தை குறைக்கும் வாய்ப்புகளை அறியுங்கள். பொருந்தக்கூடிய வீட்டு மானியத் தகுதியையும் சரிபார்க்கலாம்."/>
                 </p>
-                <a className="textlink" href="#contact">
+                <SectionLink className="textlink" href="/contact">
                   <span>
                     <TranslatedText en="Discuss home solar" ta="வீட்டு சோலார் பற்றி பேசுங்கள்"/>
                   </span>
                   <span>{"↗"}</span>
-                </a>
+                </SectionLink>
               </div>
             </article>
             <article className="service">
@@ -43,12 +44,12 @@ export function ServicesSection() {
                 <p>
                   <TranslatedText en="Explore rooftop solar for shops, offices, warehouses and other businesses looking to manage daytime electricity consumption." ta="கடைகள், அலுவலகங்கள், கிடங்குகள் மற்றும் தொழில்களுக்கான மாடி சோலார் தீர்வுகளை அறியுங்கள்."/>
                 </p>
-                <a className="textlink" href="#contact">
+                <SectionLink className="textlink" href="/contact">
                   <span>
                     <TranslatedText en="Discuss business solar" ta="வணிக சோலார் பற்றி பேசுங்கள்"/>
                   </span>
                   <span>{"↗"}</span>
-                </a>
+                </SectionLink>
               </div>
             </article>
             <article className="service">
@@ -59,8 +60,8 @@ export function ServicesSection() {
                   <TranslatedText en="On-grid, Off-grid & Hybrid" ta="ஆன்-கிரிட், ஆஃப்-கிரிட் மற்றும் ஹைப்ரிட்"/>
                 </h3>
                 <p>{"Understand grid-connected systems, battery backup options and hybrid setups before choosing equipment for your property."}</p>
-                  <a className="textlink" href="#contact">{"Find your system "}<span>{"↗"}</span>
-                </a>
+                  <SectionLink className="textlink" href="/contact">{"Find your system "}<span>{"↗"}</span>
+                </SectionLink>
               </div>
             </article>
           </div>

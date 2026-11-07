@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 import { TranslatedText } from "../i18n/translated-text";
 export function BenefitsSection() {
     return <>
@@ -53,7 +54,7 @@ export function BenefitsSection() {
               </div>
             </div>
             <div style={{ "marginTop": "28px" }}>
-              <a className="btn btn-dark" href="#contact">{"Check solar for my property ↗"}</a>
+              <SectionLink className="btn btn-dark" href="/contact">{"Check solar for my property ↗"}</SectionLink>
             </div>
           </div>
         </div>

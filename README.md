@@ -29,7 +29,7 @@ lib/
 public/images/logo.png        Original logo extracted from embedded base64
 ```
 
-The `(marketing)` route group does not change the public URL: the landing page remains `/`, and existing section links remain valid. Add future marketing routes within this group to reuse the site shell. App Router does not require a separate URL for each landing page section.
+The `(marketing)` route group does not change the public URL: the landing page remains `/`, with dedicated routes at `/services`, `/benefits`, `/subsidy`, `/projects`, and `/contact`. Every route renders the complete landing page and scrolls to its matching section. Next.js links update the pathname without hashes; direct visits, refreshes, and browser history also scroll to the matching section. Shared content lives in `components/sections/landing-page.tsx`. Add future marketing routes within this group to reuse the site shell.
 
 Layouts and sections are Server Components. Interactive language controls, translated text, the current year, and the form use small Client Components. The language provider accepts server-rendered sections through `children`; it does not make every section a Client Component. Translation uses React state and persists the preference in local storage.
 

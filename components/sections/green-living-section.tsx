@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 import { TranslatedText } from "../i18n/translated-text";
 export function GreenLivingSection() {
     return <>
@@ -27,9 +28,9 @@ export function GreenLivingSection() {
                 </b>
               </span>
             </div>
-            <a className="btn btn-dark" href="#contact">
+            <SectionLink className="btn btn-dark" href="/contact">
               <TranslatedText en="Plan my solar setup ↗" ta="எனது சோலார் அமைப்பைத் திட்டமிட ↗"/>
-            </a>
+            </SectionLink>
           </div>
           <div className="green-images">
             <img src="/images/garden.jpg" alt="Gardening tools and soil for planting a greener home" loading="lazy"/>

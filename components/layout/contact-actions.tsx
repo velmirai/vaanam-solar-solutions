@@ -1,3 +1,4 @@
+import { SectionLink } from "../navigation/section-navigation";
 export function ContactActions() {
     return <>
       <a className="whatsapp-float" href="https://wa.me/918428420505?text=Hi%20VAANAM%20Solar%20Solutions%2C%20I%20would%20like%20a%20solar%20consultation." target="_blank" rel="noopener" aria-label="Chat with VAANAM on WhatsApp">
@@ -9,7 +10,7 @@ export function ContactActions() {
       </a>
       <div className="mobile-cta">
         <a className="btn btn-dark" href="tel:+918428420505">{"☎ Call Now"}</a>
-        <a className="btn btn-primary" href="#contact">{"Get Free Quote ↗"}</a>
+        <SectionLink className="btn btn-primary" href="/contact">{"Get Free Quote ↗"}</SectionLink>
       </div>
     </>;
 }
